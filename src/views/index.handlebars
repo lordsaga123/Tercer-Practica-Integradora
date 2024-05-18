@@ -1,0 +1,23 @@
+
+{{#if user}}
+
+<div class="container">
+        <p>Bienvenido, {{user.nombre}} {{user.apellido}}!</p>
+        <p>Rol: {{user.role}}</p>
+</div>
+
+
+{{/if}}
+
+<h1>Mis productos</h1>
+<div class="contenedorCards">
+    {{#each productos}}
+    <div class="card">
+        <p>Nombre: {{this.title}} </p>
+        <p>Descripción: {{this.description}} </p>
+        <p>$: {{this.price}} </p>
+    </div>
+    {{/each}}
+</div>
+
+<script src='js/navbar.js'></script>

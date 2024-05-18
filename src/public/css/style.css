@@ -1,0 +1,355 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 1s ease;
+    background-color: #c9ffd1;
+    animation: changeColor 20s infinite; 
+}
+
+/* Cambia este estilo para ajustar los colores pasteles */
+@keyframes changeColor {
+    0% {
+        background-color: #c9ffd1; /* Verde claro */
+    }
+    25% {
+        background-color: #a5ffd6; /* Verde azulado claro */
+    }
+    50% {
+        background-color: #a1d9ff; /* Azul claro */
+    }
+    75% {
+        background-color: #bdd9ff; /* Azul pastel */
+    }
+    100% {
+        background-color: #c9ffd1; /* Vuelve al verde claro */
+    }
+}
+
+
+
+h1 {
+    text-align: center;
+}
+
+.contenedorProductos{
+    padding: 20px;
+    margin: 20px;
+}
+.contenedorCards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.card {
+    border: 1px solid #28ee56;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 15px;
+    min-width: 200px;
+    max-width: 300px;
+    background-color: #fff;
+    transition: box-shadow 0.3s ease;
+}
+.boton{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 1rem;
+    padding-left: 1rem;
+    padding: 10px 15px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/*Login de Usuarios*/
+/* Estilos para el contenedor del formulario */
+.formLogin {
+    width: 450px; 
+    margin: 0 auto; 
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+.formLogin label,
+.formLogin input,
+.formLogin button {
+    margin-bottom: 1rem; 
+}
+
+
+/* Estilos para las etiquetas */
+label {
+    display: block; 
+    margin-bottom: 5px; 
+}
+
+/* Estilos para los campos de entrada */
+input[type="email"],
+input[type="password"] {
+    width: 100%; 
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box; 
+}
+
+/* Estilos para el botón de login */
+.btn {
+    display: flex;
+    justify-content: center;
+    width: 100%; 
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s; 
+}
+
+/* Estilos para el botón de volver */
+.volver {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin-top: 10px; 
+    padding: 10px;
+    background-color: #ccc;
+    color: #444;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none; 
+    transition: background-color 0.3s; 
+}
+
+/* Estilos para los botones al pasar el mouse sobre ellos */
+.btn:hover{
+    background-color: #237727;
+}
+.volver:hover {
+    background-color: #f47373;
+}
+
+
+.formCard {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+  
+  .formCard input,
+  .formCard select {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .formCard select {
+    cursor: pointer;
+  }
+  
+  .formCard button {
+    padding: 10px 15px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .formCard button:hover {
+    background-color: #45a049;
+  }
+  
+  .tituloFormulario {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .botones{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+/*Formulario Register*/
+/* Estilos para el contenedor del formulario */
+.formRegister {
+    width: 300px; 
+    margin: 20px auto 0; 
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+.registrarse{
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0%;
+}
+
+
+/* Estilos para las etiquetas */
+label {
+    display: block; 
+    margin-bottom: 5px; 
+}
+
+/* Estilos para los campos de entrada */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"] {
+    width: 100%; 
+    padding: 0.5rem;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box; 
+}
+
+/* Estilos para el botón de registro */
+.btn {
+  font-size: 1rem;
+    width: 100%; 
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s; 
+}
+
+/* Estilos para el botón de registro al pasar el mouse sobre él */
+.btn:hover {
+    background-color: #45a049;
+}
+
+/*Registrarse*/
+.formRegistroYLogin {
+    text-align: center; 
+}
+.formRegistro {
+    padding: 1rem; 
+}
+
+/*Bienvenida usuario*/
+.container {
+  min-width: 200px; 
+  max-width: 250px; 
+  margin: 0 auto; 
+  padding: 1rem; 
+  background-color: #f8f9fa; 
+  border-radius: 10px; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+
+
+
+p {
+  margin: 10px 0; 
+  font-size: 18px; 
+  color: #333; 
+}
+
+/* Navbar */
+.nav {
+  margin-bottom: 1rem;
+  width: auto;
+  height: 3rem;
+  background-color: #333333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem; 
+  border-radius: 1rem; 
+}
+
+.nav-item {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px; 
+  border-radius: 5px; 
+  transition: background-color 0.3s, transform 0.2s; 
+}
+
+.nav-item:hover {
+  background-color: #555; 
+  transform: translateY(-2px); 
+}
+
+/*Vista Productos*/
+.pageContainer {
+  text-align: center; 
+  margin-top: 20px; 
+  padding: 10px; 
+}
+
+.pageContainer a {
+  display: inline-block; 
+  margin: 0 10px; 
+  padding: 8px 16px; 
+  background-color: #007bff; 
+  color: #fff; 
+  text-decoration: none;
+  border-radius: 5px; 
+  transition: background-color 0.3s; 
+}
+
+.pageContainer a:hover {
+  background-color: #0056b3; 
+}
+
+.pageProducts {
+  margin-top: 10px; 
+  font-size: 16px; 
+  color: #333; 
+}
+
+.nav-redirect{
+  margin: 10px;
+  color: #141414;
+  border: #141414;
+  box-shadow: #f90707;
+} 
+.nav-redirect:hover{
+  color: #f8f5f5;
+} 
+.box-redirect{
+  border: #141414;
+  box-shadow: #f90707;
+}

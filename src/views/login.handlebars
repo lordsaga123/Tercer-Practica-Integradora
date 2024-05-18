@@ -1,0 +1,22 @@
+
+<div class="formRegistroYLogin">
+<h1>Login</h1>
+<div class="formLogin">
+<form action="/api/users/login" method="POST">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <br>
+    <button class="btn" type="submit">Login</button> 
+    <a href="/" class="volver">Volver al Inicio</a>
+</form>
+</div>
+<div class="formLogin formRegistro">
+    <h2>Si todavía no te registrate, puedes hacerlo aqui!!</h2>
+<button class="btn registrarse"><a href="/register">Registrarse</a></button>
+<button class="btn registrarse"><a href="/api/users/github">Registrarse con GitHub</a></button>
+</div>
+<p>¿Olvidaste tu contraseña? <a href="/reset-password">Restablecer contraseña</a></p>
+</div>

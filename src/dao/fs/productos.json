@@ -1,0 +1,112 @@
+[
+  {
+    "title": "Aceite",
+    "description": "Comida",
+    "price": 150,
+    "img": "Sin imagen",
+    "code": "abc123",
+    "stock": 250,
+    "category": "Almacen",
+    "status": true,
+    "thumbnails": []
+  },
+  {
+    "title": "Arroz",
+    "description": "Comida",
+    "price": 300,
+    "img": "Sin imagen",
+    "code": "abc124",
+    "stock": 210,
+    "category": "Almacen",
+    "status": true,
+    "thumbnails": []
+  },
+  {
+    "title": "Azucar",
+    "description": "Comida",
+    "price": 250,
+    "img": "Sin imagen",
+    "code": "abc125",
+    "stock": 250,
+    "category": "Almacen",
+    "status": true,
+    "thumbnails": []
+  },
+  {
+    "title": "Cereales",
+    "description": "Comida",
+    "price": 110,
+    "img": "Sin imagen",
+    "code": "abc126",
+    "stock": 250,
+    "category": "Almacen",
+    "status": true,
+    "thumbnails": []
+  },
+  {
+    "title": "Pan",
+    "description": "Comida",
+    "price": 60,
+    "img": "Sin imagen",
+    "code": "abc127",
+    "stock": 250,
+    "category": "Almacen",
+    "status": true,
+    "thumbnails": []
+  },
+  {
+    "title": "Harina",
+    "description": "Comida",
+    "price": 150,
+    "img": "Sin imagen",
+    "code": "abc128",
+    "stock": 250,
+    "category": "Almacen",
+    "status": true,
+    "thumbnails": []
+  },
+  {
+    "title": "Manteca",
+    "description": "Comida",
+    "price": 650,
+    "img": "Sin imagen",
+    "code": "abc129",
+    "stock": 250,
+    "category": "Almacen",
+    "status": true,
+    "thumbnails": []
+  },
+  {
+    "title": "Yerba",
+    "description": "Comida",
+    "price": 450,
+    "img": "Sin imagen",
+    "code": "abc1210",
+    "stock": 250,
+    "category": "Almacen",
+    "status": true,
+    "thumbnails": []
+  },
+  {
+    "title": "Café",
+    "description": "Comida",
+    "price": 250,
+    "img": "Sin imagen",
+    "code": "abc1211",
+    "stock": 250,
+    "category": "Almacen",
+    "status": true,
+    "thumbnails": []
+  },
+  {
+    "title": "Fideos",
+    "description": "Comida",
+    "price": 150,
+    "img": "Sin imagen",
+    "code": "abc1212",
+    "stock": 250,
+    "category": "Almacen",
+    "status": true,
+    "thumbnails": []
+  }
+]

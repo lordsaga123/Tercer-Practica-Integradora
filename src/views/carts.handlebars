@@ -1,0 +1,114 @@
+<h1>Carrito de Compras</h1>
+
+<div class="contenedorCards">
+{{#each productos}}
+  <div class="card">
+    <div class="card-body">
+            <h5 class="card-title">Producto: {{this.product.title}}</h5>
+            <p class="card-text">Cantidad: {{this.quantity}}</p>
+            <p class="card-text">Precio: ${{this.product.totalPrice}}</p>
+            <button onclick="eliminarProducto('{{this.cartId}}', '{{this.product._id}}')"
+                class="btn btn-danger">Eliminar</button>
+        </div>
+  </div>
+{{/each}}
+</div>
+
+<button onclick="vaciarCarrito('{{cartId}}')" class="btn btn-danger">Vaciar Carrito</button>
+<button onclick="completePurchase('{{cartId}}')">Terminar Compra</button>
+<h3 class="mt-2">Total de la compra: ${{totalCompra}}</h3>
+
+
+
+{{!-- Organizar en un módulo en PUBLIC/JS --}}
+{{!-- <script src="../public/js/cart.js"> </script>--}}
+
+<script>
+     function eliminarProducto(cartId, productId) {
+        fetch(`/api/carts/${cartId}/product/${productId}`, {
+            method: 'DELETE'
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error al eliminar el producto del carrito');
+                }
+                // Mostramos la alerta de éxito cuando se elimina el producto
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Producto eliminado exitosamente",
+                    showConfirmButton: false,
+                    timer: 1500
+                }).then(() => {
+                    location.reload();
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+
+    function vaciarCarrito(cartId) {
+        fetch(`/api/carts/${cartId}`, {
+            method: 'DELETE'
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error al vaciar el carrito');
+                }
+                // Mostramos la alerta de éxito cuando se vacía el carrito
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Carrito vaciado exitosamente",
+                    showConfirmButton: false,
+                    timer: 1500
+                }).then(() => {
+                    location.reload();
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+    /*function vaciarCarrito(cartId) {
+        fetch(`/api/carts/${cartId}`, {
+            method: 'DELETE'
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error al vaciar el carrito');
+                }
+                location.reload();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }*/
+    function completePurchase(cartId){
+  fetch(`/api/carts/${cartId}/purchase`, { method: 'POST' })
+    .then(response => {
+      if(!response.ok){
+        throw Error(`Error completing purchase`)
+      }
+      return Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Compra completada exitosamente",
+        showConfirmButton: true, 
+      }).then(() => {
+        location.reload();
+      });
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: "Error al completar la compra",
+        showConfirmButton: false,
+        timer: 2500
+      });
+    });
+}
+</script>
