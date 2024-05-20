@@ -8,6 +8,25 @@ const handleError =require("./middleware/handleError.js");
 const addLogger = require("./middleware/addLogger.js");
 const errorsRoutes = require("./routes/errors.router.js");
 
+const swaggerJSDoc = require('swagger-jsdoc');
+const swaggerUiExpress = require("swagger-ui-express");
+
+//Swagger
+const swaggerOptions = {
+    definition: {
+        openapi: '3.0.1',
+        info: {
+            title: "Backend Final Project - Coderhouse",
+            description: "Proyecto final de Backend. Comisión: 50015. Alumno: Luis Jaime Vázquez."
+        }
+    },
+    apis: [`${__dirname}/docs/**/*.yaml`]
+}
+
+const specs = swaggerJSDoc(swaggerOptions)
+app.use('/apidocs', swaggerUiExpress.serve, swaggerUiExpress.setup(specs))
+
+
 //Passport: 
 const passport = require("passport");
 const initializePassport = require("./config/passport.config.js");

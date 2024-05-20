@@ -1,0 +1,183 @@
+paths:
+  /:
+    get:
+      summary: "Consulta todos los productos"
+      tags:
+        - Products
+      responses:
+        "200":
+          description: "Retorna todos los productos en la base de datos"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#components/schemas/product.Controller"
+        "500":
+          description: "Error del servidor al obtener los productos"
+  /realtimeproducts:
+    post:
+      summary: "Agrega un nuevo producto a la base de datos"
+      tags:
+        - Products
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: "Pasta de Dientes"
+                description: 
+                  type: string
+                  example: "Para lavarse la boca"
+                price: 
+                  type: number
+                  example: 500
+                img: 
+                  type: string
+                  example: "Sin Imagen"
+                code: 
+                  type: string
+                  example: "abc852963"
+                stock: 
+                  type: number
+                  example: 320
+                status: 
+                  type: boolean
+                  example: true
+                category: 
+                  type: string
+                  example: "Almacén"
+      responses:
+        "201":
+          description: "Producto creado exitosamente"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/product.Controller"
+        "500":
+          description: "Error del servidor al crear el producto"
+
+  /api/products/{pid}:
+    get:  
+      summary: "Consultar un producto dado su id"
+      tags:
+        - Products
+      parameters:
+      - name: pid
+        in: path
+        required: true
+        description: "Id del producto solicitado."
+        schema: 
+          $type: String
+      responses:
+        "200":
+          description: "Producto encontrado"
+          content:
+            application/json:
+              schema:
+                $ref: "#components/schemas/product.Controller"
+        "500":
+          description: "Error del servidor al obtener el/los productos"
+    
+    put:  
+      summary: Modifica un producto en la Base de Datos buscando por ID
+      tags:
+        - Products
+      parameters:
+      - name: pid
+        in: path
+        required: true
+        description: "Modificar alguna o todas las propiedades de un producto dado."
+        schema: 
+          $type: String
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                stock:
+                  type: number
+                  example: 1000
+      responses:
+        "200":
+          description: "Producto modificado"
+          content:
+            application/json:
+              schema:
+                $ref: "#components/schemas/product.Controller"
+        "500":
+          description: "Error del servidor al actualizar el/los productos"
+
+    delete:  
+      summary: Elimina un producto de la Base de Datos según el ID buscado
+      tags:
+        - Products
+      parameters:
+      - name: pid
+        in: path
+        required: true
+        description: "Eliminar un producto dado de la base de productos."
+        schema: 
+          $type: String
+      responses:
+        "200":
+          description: "Producto eliminado"
+          content:
+            application/json:
+              schema:
+                $ref: "#components/schemas/product.Controller"
+        "500":
+          description: "Error del servidor al eliminar el/los productos"
+
+components:
+  schemas:
+    Product:
+      type: object
+      properties:
+        _id:
+          type: ObjectId
+          description: "Id autogenerado"
+        title:
+          type: String
+          description: "Nombre del Producto"
+        description:
+          type: String
+          description: "Descripción del Producto"
+        price:
+          type: Number
+          description: "Precio del Producto"
+        img:
+          type: string
+          description: "Imagen del Producto"
+        code:
+          type: String
+          description: "Código del Producto"
+        stock:
+          type: Number
+          description: "Stock disponible del Producto"
+        category:
+          type: String
+          description: "Categoría del Producto"
+        status:
+          type: Boolean
+          description: "Status del Producto"
+        thumbnail:
+          type: Array
+          description: "Imagen del Producto"
+      example:
+        _id: ObjectId("12bb12bb12bb12bb12bb12bb")
+        title: "Harina"
+        description: "Comida"
+        price: 150
+        img: "Sin imagen"
+        stock: 240
+        code: "abc128"        
+        status: true
+        category: "Almacen"
+        thumbnail: []

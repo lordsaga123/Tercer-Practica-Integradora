@@ -1,0 +1,185 @@
+paths:
+  /api/carts/{cid}:
+    get:  
+      summary: Consultar un carrito dado su Id
+      tags:
+        - Carts
+      parameters:
+        - name: cid
+          in: path
+          required: true
+          description: "Id del carrito solicitado"
+          schema: 
+            type: string
+      
+      responses:
+        "200":
+          description: "Carrito encontrado"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/cart.model"
+      
+    put:  
+      summary: Reemplaza todo el contenido de los productos del carrito con los enviados por el cuerpo usando los product_id(s) en formato JSON.
+      tags:
+        - Carts
+      parameters:
+        - name: cid
+          in: path
+          required: true
+          description: "Id del carrito a modificar"
+          schema: 
+            type: string
+      
+      responses:
+        "200":
+          description: "Carrito modificado en su totalidad"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/cart.model"
+    
+    delete:
+      summary: Vacía el carrito especificado.
+      tags:
+        - Carts
+      parameters:
+        - name: cid
+          in: path
+          required: true
+          description: "Id del carrito a vaciar"
+          schema: 
+            type: string
+      
+      responses:
+        "200":
+          description: "Carrito vaciado correctamente"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/cart.model"
+
+  /api/carts/{cid}/purchase:
+    post:  
+      summary: "Crea un ticket de compra basado en los productos existentes en el carrito y actualiza el stock de productos según las cantidades restadas. Utiliza cart_id"
+      tags:
+        - Carts
+      parameters:
+        - name: cid
+          in: path
+          required: true
+          description: "Id del carrito solicitado"
+          schema: 
+            type: string
+      
+      responses:
+        "200":
+          description: "Compra realizada"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/cart.model"
+
+  /api/carts/{cid}/product/{pid}:
+    post:
+      summary: "Añade un producto basado en product_id a un carrito específico basado en cart_id."
+      tags:
+        - Carts
+      parameters:
+        - name: cid
+          in: path
+          required: true
+          description: "Id del carrito"
+          schema: 
+            type: string
+        - name: pid
+          in: path
+          required: true
+          description: "Id del producto"
+          schema: 
+            type: string
+      responses:
+        "200":
+          description: "Producto añadido al carrito especificado."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/cart.model"
+        "500":
+          description: "Error del servidor al añadir el producto al carrito"
+  
+    put:
+      summary: "Modifica la cantidad especificada de un producto usando el cuerpo. Ej.: {\"quantity\":2}."
+      tags:
+        - Carts
+      parameters:
+        - name: cid
+          in: path
+          required: true
+          description: "Id del carrito"
+          schema: 
+            type: string
+        - name: pid
+          in: path
+          required: true
+          description: "Id del producto"
+          schema: 
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                quantity:
+                  type: number
+                  example: 2
+      responses:
+        "200":
+          description: "Cantidad del producto modificada en el carrito."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/cart.model"
+        "500":
+          description: "Error del servidor al modificar la cantidad del producto en el carrito" 
+
+    delete:
+      summary: "Elimina completamente un producto específico del carrito especificado."
+      tags:
+        - Carts
+      parameters:
+        - name: cid
+          in: path
+          required: true
+          description: "Id del carrito"
+          schema: 
+            type: string
+        - name: pid
+          in: path
+          required: true
+          description: "Id del producto"
+          schema: 
+            type: string
+      responses:
+        "200":
+          description: "Producto eliminado del carrito especificado."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/cart.model"
+        "500":
+          description: "Error del servidor al eliminar el producto del carrito"  
+
+components:
+  schemas:
+    Cart:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: "Id autogenerado"
+        products:
+          type: array
