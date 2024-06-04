@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/app.js --mode development",
-    "start": "node src/app.js --mode production"
+    "start": "node src/app.js --mode production",
+    "test": "mocha test/User.test.js",
+    "chaitest": "mocha test/User.Chai.test.js",
+    "supertest": "mocha test/superTest.test.js"
   },
   "keywords": [],
   "author": "",
@@ -18,6 +20,7 @@
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
+    "esm": "^3.2.25",
     "express": "^4.18.2",
     "express-handlebars": "^7.1.2",
     "express-session": "^1.18.0",

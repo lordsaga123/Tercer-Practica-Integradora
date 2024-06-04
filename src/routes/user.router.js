@@ -16,6 +16,11 @@ router.get("/admin", passport.authenticate("jwt", { session: false }), userContr
 router.post("/requestPasswordReset", userController.requestPasswordReset.bind(userController)); // Nueva ruta
 router.post("/reset-password", userController.resetPassword.bind(userController));
 router.put("/premium/:uid", passport.authenticate("jwt", { session: false }), userController.changeRolPremium.bind(userController));
+
+// Ruta para renderizar la página de reset de contraseña
+router.get("/reset-password", (req, res) => {
+    res.render("resetpassword");
+});
 /*
 
 //Tercer Práctica Integradora: 
